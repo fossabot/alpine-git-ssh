@@ -5,6 +5,7 @@ RUN apk add --no-cache git openssh-client && \
 
 ADD *.sh /
 
+RUN ["chmod", "+x", "/init-git.sh"]
 RUN ["chmod", "+x", "/init-ssh.sh"]
 
 ENTRYPOINT ["/init-ssh.sh"]

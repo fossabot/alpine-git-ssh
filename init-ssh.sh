@@ -2,6 +2,8 @@
 
 set -e
 
+sh -c "/init-git.sh"
+
 if [ -n "$SSH_PRIVATE_KEY" ]
 then
   mkdir -p /root/.ssh
