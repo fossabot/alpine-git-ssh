@@ -7,5 +7,6 @@ ADD *.sh /
 
 RUN ["chmod", "+x", "/init-git.sh"]
 RUN ["chmod", "+x", "/init-ssh.sh"]
+RUN ["chmod", "+x", "/entrypoint.sh"]
 
-ENTRYPOINT ["/init-ssh.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
