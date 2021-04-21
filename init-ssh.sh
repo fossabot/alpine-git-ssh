@@ -2,18 +2,12 @@
 
 set -e
 
-if [ "" = "$SSH_PRIVATE_KEY" ]
+if [ -n "$SSH_PRIVATE_KEY" ]
 then
-  echo no SSH_PRIVATE_KEY
-  exit
+  mkdir -p /root/.ssh
+  echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
+  chmod 600 /root/.ssh/id_rsa
 fi
 
-SSH_PATH=/root/.ssh
-ID_RSA=${SSH_PATH}/id_rsa
-
-mkdir -p ${SSH_PATH}
-
-echo "$SSH_PRIVATE_KEY" > ${ID_RSA}
-chmod 600 ${ID_RSA}
-
-cp -p ${SSH_PATH} ~
+mkdir -p ~/.ssh
+cp /root/.ssh/* ~/.ssh/ 2> /dev/null || true
