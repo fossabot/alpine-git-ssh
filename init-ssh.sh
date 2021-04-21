@@ -2,9 +2,6 @@
 
 set -e
 
-echo init-ssh.sh
-echo "I am $(whoami)"
-
 if [ "" = "$SSH_PRIVATE_KEY" ]
 then
   echo no SSH_PRIVATE_KEY
