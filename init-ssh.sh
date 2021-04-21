@@ -8,10 +8,12 @@ then
   exit
 fi
 
-SSH_PATH=~/.ssh
+SSH_PATH=/root/.ssh
 ID_RSA=${SSH_PATH}/id_rsa
 
 mkdir -p ${SSH_PATH}
 
 echo "$SSH_PRIVATE_KEY" > ${ID_RSA}
 chmod 600 ${ID_RSA}
+
+cp -p ${SSH_PATH} ~
