@@ -1,7 +1,5 @@
 #!/bin/sh
 
-echo init-ssh
-
 set -e
 
 if [ "" = "$SSH_PRIVATE_KEY" ]
