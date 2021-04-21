@@ -15,3 +15,11 @@ mkdir -p ${SSH_PATH}
 
 echo "$SSH_PRIVATE_KEY" > ${ID_RSA}
 chmod 600 ${ID_RSA}
+
+ssh -T git@github.com
+
+mkdir /root/.ssh
+
+cp -r ${SSH_PATH} /root/.ssh
+
+ssh -T git@github.com
