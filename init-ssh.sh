@@ -2,6 +2,9 @@
 
 set -e
 
+echo init-ssh.sh
+echo "I am $(whoami)"
+
 if [ "" = "$SSH_PRIVATE_KEY" ]
 then
   echo no SSH_PRIVATE_KEY
@@ -15,7 +18,3 @@ mkdir -p ${SSH_PATH}
 
 echo "$SSH_PRIVATE_KEY" > ${ID_RSA}
 chmod 600 ${ID_RSA}
-
-echo init-ssh.sh
-ls -lh ~/.ssh
-cat ~/.ssh/id_rsa
