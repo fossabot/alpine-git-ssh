@@ -11,7 +11,7 @@ then
   exit
 fi
 
-SSH_PATH=~/.ssh
+SSH_PATH=/root/.ssh
 ID_RSA=${SSH_PATH}/id_rsa
 
 mkdir -p ${SSH_PATH}
@@ -24,9 +24,9 @@ ls -als
 
 ssh -T git@github.com
 
-mkdir /root/.ssh
+mkdir ~/.ssh
 
-cp -r ${SSH_PATH} /root/.ssh
+cp -r ${SSH_PATH}/* ~/.ssh
 
 ssh -T git@github.com
 
