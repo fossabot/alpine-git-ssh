@@ -2,33 +2,20 @@
 
 set -e
 
-echo ssh start ~
-ls -als
-
 if [ "" = "$SSH_PRIVATE_KEY" ]
 then
   echo no SSH_PRIVATE_KEY
   exit
 fi
 
-SSH_PATH=/root/.ssh
-ID_RSA=${SSH_PATH}/id_rsa
+ROOT_SSH_PATH=/root/.ssh
+ROOT_ID_RSA=${ROOT_SSH_PATH}/id_rsa
 
-mkdir -p ${SSH_PATH}
+mkdir -p ${ROOT_SSH_PATH}
 
-echo "$SSH_PRIVATE_KEY" > ${ID_RSA}
-chmod 600 ${ID_RSA}
+echo "$SSH_PRIVATE_KEY" > ${ROOT_ID_RSA}
+chmod 600 ${ROOT_ID_RSA}
 
-echo ssh end ~
-ls -als
-
-ssh -T git@github.com
-
-mkdir ~/.ssh
-
-cp -r ${SSH_PATH}/* ~/.ssh
-
-ssh -T git@github.com
-
-echo ssh -T ~
-ls -als
+USER_SSH_PATH=~/.ssh
+mkdir -p ${USER_SSH_PATH}
+cp -r ${ROOT_SSH_PATH}/* ${USER_SSH_PATH}
