@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo init-git
+
 set -e
 
 if [ -n "$USER" ]
