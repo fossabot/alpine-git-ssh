@@ -2,6 +2,9 @@
 
 set -e
 
+echo ssh start ~
+ls -als
+
 if [ "" = "$SSH_PRIVATE_KEY" ]
 then
   echo no SSH_PRIVATE_KEY
@@ -23,3 +26,6 @@ mkdir /root/.ssh
 cp -r ${SSH_PATH} /root/.ssh
 
 ssh -T git@github.com
+
+echo ssh end ~
+ls -als
